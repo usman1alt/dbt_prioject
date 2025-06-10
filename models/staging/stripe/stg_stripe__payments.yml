@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_strip__payments
+    description: one unique customer per row
+    columns: 
+      - name: payment_id
+        description: payment_id is primary key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: '{{ doc("order_id_stripe") }}'
+        tests:
+          - unique
+          - not_null
+
